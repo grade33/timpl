@@ -1,11 +1,15 @@
 <template>
   <div class="app">
-    <RouterView />
+    <HomePage />
   </div>
 </template>
 
 <script>
-export default {};
+import HomePage from '@/views/HomePage.vue';
+
+export default {
+  components: { HomePage },
+};
 </script>
 
 <style lang="scss" scoped>
