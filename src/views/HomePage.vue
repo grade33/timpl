@@ -1,11 +1,11 @@
 <template>
   <div class="home">
     <ProfileComp class="home__waiter" />
-    <TipsComponent />
+    <TipsComponent :is-pay-commission="isPayCommission" />
     <DottedLine />
     <RateComp />
     <DottedLine />
-    <PayComp />
+    <PayComp v-model:is-pay-commission="isPayCommission" />
   </div>
 </template>
 
@@ -18,16 +18,17 @@ import PayComp from '@/components/PayComp.vue';
 
 export default {
   components: { PayComp, RateComp, DottedLine, TipsComponent, ProfileComp },
+  data() {
+    return {
+      isPayCommission: false,
+    };
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .home {
-  max-width: 375px;
-  padding: 55px 10px 30px;
-  overflow: hidden;
-  background: #b9b7f4;
-  border-radius: 30px;
+  max-width: 355px;
 
   &__waiter {
     margin-bottom: 12px;

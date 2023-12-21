@@ -10,10 +10,17 @@
           card.
         </p>
       </div>
-      <ToggleComp />
+      <ToggleComp
+        :model-value="isPayCommission"
+        @update:model-value="(e) => $emit('update:isPayCommission', e)"
+      />
     </div>
     <div class="pay__buttons">
-      <button class="pay__btn pay__btn_apple" type="button">
+      <button
+        class="pay__btn pay__btn_apple"
+        :disabled="!isAgree"
+        type="button"
+      >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 59 25">
           <path
             fill="#000"
@@ -21,7 +28,9 @@
           />
         </svg>
       </button>
-      <button class="pay__btn pay__btn_card" type="button">Pay by card</button>
+      <button class="pay__btn pay__btn_card" :disabled="!isAgree" type="button">
+        Pay by card
+      </button>
     </div>
     <label class="pay__agreement">
       <CheckboxComp v-model="isAgree" />
@@ -39,6 +48,13 @@ import ToggleComp from '@/components/UI/ToggleComp.vue';
 
 export default {
   components: { ToggleComp, CheckboxComp },
+  props: {
+    isPayCommission: {
+      type: Boolean,
+      required: true,
+    },
+  },
+  emits: ['update:isPayCommission'],
   data() {
     return {
       isAgree: false,
@@ -84,10 +100,31 @@ export default {
     font-size: 18px;
     text-align: center;
     border-radius: 22px;
+    transition:
+      background-color 0.2s ease-in-out,
+      border-color 0.2s ease-in-out;
+
+    &:disabled {
+      cursor: initial;
+      opacity: 0.7;
+    }
 
     &_apple {
       background: #fff;
       border: 1.5px solid #dde3f1;
+
+      &:not(&:disabled) {
+        &:hover,
+        &:focus-visible {
+          background: lighten(#dde3f1, 5%);
+          border-color: lighten(#dde3f1, 5%);
+        }
+
+        &:active {
+          background: #dde3f1;
+          border-color: #dde3f1;
+        }
+      }
 
       svg {
         height: 24px;
@@ -109,7 +146,29 @@ export default {
         background: #96ff43;
         border-radius: 22px;
         filter: blur(15px);
+        transition: background-color 0.2s ease-in-out;
         content: '';
+      }
+
+      &:not(&:disabled) {
+        &:hover,
+        &:focus-visible {
+          background: darken(#96ff43, 15%);
+          border-color: darken(#96ff43, 15%);
+
+          &::before {
+            background: darken(#96ff43, 15%);
+          }
+        }
+
+        &:active {
+          background: darken(#96ff43, 20%);
+          border-color: darken(#96ff43, 20%);
+
+          &::before {
+            background: darken(#96ff43, 20%);
+          }
+        }
       }
     }
   }

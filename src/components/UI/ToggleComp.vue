@@ -1,14 +1,25 @@
 <template>
   <div>
-    <input id="switch" class="visually-hidden" type="checkbox" /><label
-      for="switch"
-      >Toggle</label
-    >
+    <input
+      id="switch"
+      class="visually-hidden"
+      :checked="modelValue"
+      type="checkbox"
+      @change="$emit('update:modelValue', $event.target.checked)"
+    /><label for="switch">Toggle</label>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    modelValue: {
+      type: Boolean,
+      required: true,
+    },
+  },
+  emits: ['update:modelValue'],
+};
 </script>
 
 <style lang="scss" scoped>

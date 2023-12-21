@@ -10,6 +10,8 @@ export default {};
 
 <style lang="scss" scoped>
 .dots {
+  position: relative;
+  z-index: 2;
   display: flex;
   gap: 11px;
   align-items: center;

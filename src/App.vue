@@ -16,6 +16,7 @@ export default {
 .app {
   display: flex;
   align-items: center;
-  justify-content: center;
+  padding-top: 25px;
+  padding-bottom: 64px;
 }
 </style>

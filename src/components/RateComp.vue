@@ -78,11 +78,21 @@ export default {
 
 <style lang="scss" scoped>
 .rate {
-  gap: 20px;
+  &__title {
+    width: 100%;
+    margin-bottom: 17px;
+    padding: 9px;
+    color: #c6fca1;
+    font-size: 21px;
+    text-align: center;
+    background: #8e6cea;
+    border-radius: 8px;
+  }
 
   &__stars {
     display: flex;
     gap: 10px;
+    padding: 0 7px;
   }
 
   &__star {
@@ -133,6 +143,7 @@ export default {
     flex-direction: column;
     gap: 18px;
     align-items: center;
+    margin-top: 20px;
 
     &-title {
       color: #8e6cea;

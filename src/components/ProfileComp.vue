@@ -1,73 +1,78 @@
 <template>
   <section class="profile">
-    <img
-      class="profile__image"
-      src="@/assets/img/waiter.png"
-      alt="Waiter Photo"
-    />
+    <div class="profile__image-wrap">
+      <img
+        class="profile__image"
+        src="@/assets/img/waiter.png"
+        alt="Waiter Photo"
+      />
+    </div>
     <div class="profile__info">
-      <strong class="profile__name">Philip</strong>
-      <span class="profile__role">was your waiter</span>
-      <div class="profile__logo">
-        <img
-          class="profile__logo-logo"
-          src="@/assets/img/wheel-logo.png"
-          alt="Waiter working company logo - Теремок"
-        />
-        <div class="profile__logo-text-wrapper">
-          <svg
-            class="profile__logo-text"
-            viewBox="0 0 193 193"
-            width="193"
-            height="193"
-          >
-            <defs>
-              <path
-                id="circle"
-                d="
+      <div class="profile__info-sign-forward">
+        <div class="profile__logo">
+          <img
+            class="profile__logo-icon"
+            src="@/assets/img/wheel-logo.png"
+            alt="Waiter working company logo - Теремок"
+          />
+          <div class="profile__logo-text-wrapper">
+            <svg
+              class="profile__logo-text"
+              viewBox="0 0 193 193"
+              width="193"
+              height="193"
+            >
+              <defs>
+                <path
+                  id="circle"
+                  d="
           M 96.5, 96.5
           m -73, 0
           a 73,73 0 1,1 146,0
           a 73,73 0 1,1 -146,0"
-              />
-            </defs>
-            <text font-size="9">
-              <!-- Размер шрифта может потребовать дополнительной корректировки -->
-              <textPath xlink:href="#circle">
-                Powered by TImpl * Powered by TImpl * Powered by TImpl *
-                <!-- Регулируйте количество повторений текста для достижения оптимального размещения -->
-              </textPath>
-            </text>
-          </svg>
+                />
+              </defs>
+              <text>
+                <textPath xlink:href="#circle">
+                  Powered by TImpl * Powered by TImpl * Powered by TImpl *
+                </textPath>
+              </text>
+            </svg>
+          </div>
+        </div>
+        <div class="profile__logo-wrap">
+          <div class="profile__logo">
+            <div class="profile__logo-text-wrapper">
+              <svg
+                class="profile__logo-text"
+                viewBox="0 0 193 193"
+                width="193"
+                height="193"
+              >
+                <defs>
+                  <path
+                    id="circle"
+                    d="
+                M 96.5, 96.5
+                m -73, 0
+                a 73,73 0 1,1 146,0
+                a 73,73 0 1,1 -146,0"
+                  />
+                </defs>
+                <text>
+                  <textPath xlink:href="#circle">
+                    Powered by TImpl * Powered by TImpl * Powered by TImpl *
+                  </textPath>
+                </text>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="profile__logo-wrap">
-        <div class="profile__logo">
-          <svg
-            class="profile__logo-text"
-            viewBox="0 0 193 193"
-            width="193"
-            height="193"
-          >
-            <defs>
-              <path
-                id="circle"
-                d="
-          M 96.5, 96.5
-          m -73, 0
-          a 73,73 0 1,1 146,0
-          a 73,73 0 1,1 -146,0"
-              />
-            </defs>
-            <text font-size="9">
-              <!-- Размер шрифта может потребовать дополнительной корректировки -->
-              <textPath xlink:href="#circle">
-                Powered by TImpl * Powered by TImpl * Powered by TImpl *
-                <!-- Регулируйте количество повторений текста для достижения оптимального размещения -->
-              </textPath>
-            </text>
-          </svg>
-        </div>
+      <div class="profile__info-sign-backward"></div>
+      <div class="profile__text">
+        <strong class="profile__name">Philip</strong>
+        <span class="profile__role">was your waiter</span>
       </div>
     </div>
   </section>
@@ -82,50 +87,77 @@ export default {};
   position: relative;
   z-index: 1;
 
-  &::before {
-    position: absolute;
-    bottom: 0;
-    left: 8px;
-    z-index: -1;
-    width: 326px;
-    height: 149px;
-    background: #7c36c5;
-    border-radius: 52.5px;
-    filter: blur(35px);
-    content: '';
-  }
-
   &__image {
+    &-wrap {
+      position: relative;
+      z-index: -1;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 28px;
+
+      &::before {
+        position: absolute;
+        right: 0;
+        bottom: -40px;
+        left: -10px;
+        z-index: 2;
+        width: 150%;
+        height: 60px;
+        background: #b8b6f4;
+        transform: rotate(-5deg);
+        content: '';
+      }
+    }
+
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    width: auto;
+    max-width: none;
+    max-height: none;
     border-radius: 28px;
+    transform: translateX(-50%);
   }
 
   &__info {
     position: absolute;
-    bottom: 47px;
-    left: -30px;
-    display: flex;
-    flex-direction: column;
+    bottom: 70px;
+    left: 0;
     width: 100%;
-    max-width: 256px;
-    padding-top: 24px;
-    padding-bottom: 19px;
-    padding-left: 38px;
     color: #fff;
-    background: #8e6cea;
-    border-radius: 8px;
 
-    &::before {
+    &-sign-backward {
       position: absolute;
-      bottom: -17px;
-      left: 0;
-      z-index: -1;
-      width: 100%;
-      max-width: 91px;
+      bottom: -36px;
+      left: -41px;
+      z-index: -2;
+      width: 122px;
       height: 83px;
       background: #6238d3;
       border-radius: 6px;
+      transform: rotate(-172deg);
       content: '';
     }
+
+    &-sign-forward {
+      position: absolute;
+      bottom: -19px;
+      left: -63px;
+      width: 290px;
+      height: 88px;
+      background: #8e6cea;
+      border-radius: 8px;
+      transform: rotate(-5deg);
+      content: '';
+    }
+  }
+
+  &__text {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    padding-left: 28px;
   }
 
   &__name {
@@ -137,26 +169,27 @@ export default {};
   }
 
   &__logo {
+    position: absolute;
+    right: -129px;
+    bottom: -95px;
+    z-index: 5;
+    width: 193px;
+    height: 193px;
+    color: #8e6cea;
+    font-size: 13px;
+    transform: rotate(5deg);
+
     &-wrap {
       position: absolute;
-      inset: 0;
       overflow: hidden;
+      inset: 0;
 
       .profile__logo {
         color: #96ff43;
       }
     }
 
-    position: absolute;
-    right: -130px;
-    bottom: -75px;
-    z-index: 5;
-    width: 193px;
-    height: 193px;
-    color: #8e6cea;
-    font-size: 13px;
-
-    &-logo {
+    &-icon {
       position: absolute;
       top: 50%;
       left: 50%;

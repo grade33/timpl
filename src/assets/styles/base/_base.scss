@@ -9,7 +9,7 @@
   color: #151515;
   font-weight: 600;
   font-family: Montserrat, sans-serif;
-  background: #e5e5e5;
+  background: #B8B6F4;
 }
 
 .container {
@@ -23,17 +23,7 @@
 .section {
   display: flex;
   flex-direction: column;
-  gap: 16px;
   padding: 30px 25px;
   background: #fff;
   border-radius: 28px;
-
-  &__title {
-    width: fit-content;
-    padding: 9px 15px;
-    color: #c6fca1;
-    font-size: 21px;
-    background: #8e6cea;
-    border-radius: 8px;
-  }
 }
