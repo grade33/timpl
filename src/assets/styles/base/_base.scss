@@ -1,0 +1,39 @@
+@use '../utils/mixins' as mix;
+@use '../utils/variables' as vars;
+@use '../utils/functions' as fn;
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: #151515;
+  font-weight: 600;
+  font-family: Montserrat, sans-serif;
+  background: #e5e5e5;
+}
+
+.container {
+  width: 100%;
+  max-width: calc(#{vars.$container} + #{vars.$padding} * 2);
+  margin: 0 auto;
+  padding-right: vars.$padding;
+  padding-left: vars.$padding;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 30px 25px;
+  background: #fff;
+  border-radius: 28px;
+
+  &__title {
+    width: fit-content;
+    padding: 9px 15px;
+    color: #c6fca1;
+    font-size: 21px;
+    background: #8e6cea;
+    border-radius: 8px;
+  }
+}
